@@ -1,0 +1,7 @@
+{
+  "name": "PingApiIonicApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
