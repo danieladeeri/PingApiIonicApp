@@ -11,5 +11,7 @@ export class NameFormComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-
+  onSubmit(){
+    console.log('Submitted')
+  }
 }
