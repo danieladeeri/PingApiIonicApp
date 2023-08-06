@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-name-form',
@@ -6,12 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./name-form.component.scss'],
 })
 export class NameFormComponent  implements OnInit {
-[x: string]: any;
+@Output() nameSubmitted = new EventEmitter <string>();
+name: string = '';
 
   constructor() { }
 
   ngOnInit() {}
+  
   onSubmit(){
-    console.log('Submitted')
+      this.nameSubmitted.emit();
   }
 }
