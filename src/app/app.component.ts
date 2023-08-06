@@ -10,17 +10,21 @@ export class AppComponent {
   constructor(private apiService: ApiService) {}
 
   checkName(name: string) {
+    if (!name || name.trim() === '') {
+      // Display an alert if no name is entered
+      alert('Please enter a name.');
+      return;
+    }
     this.apiService.checkName(name).subscribe(
       (response: any[]) => {
         const matchingNames = response.filter(item => item.name === name);
   
         if (matchingNames.length > 0) {
-          prompt ('Correct details');
+          alert ('Correct details');
         } else {
-          prompt ('Incorrect details');
+          alert ('Incorrect details');
         }
       },
     );
   }
-  
 }
