@@ -14,8 +14,8 @@ name: string = '';
   ngOnInit() {}
   
   onSubmit(){
-    if (this.name.trim() !== '') {
+    // if (this.name.trim() !== '') {
       this.nameSubmitted.emit(this.name);
-    }  
+    // }  
   }
 }
