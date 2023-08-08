@@ -6,16 +6,17 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./name-form.component.scss'],
 })
 export class NameFormComponent  implements OnInit {
-@Output() nameSubmitted = new EventEmitter <string>();
+@Output() nameSubmitted = new EventEmitter <{name: string, password: string}>();
 name: string = '';
+password: string = '';
 
-  constructor() { }
+constructor() { }
 
   ngOnInit() {}
-  
+
   onSubmit(){
     // if (this.name.trim() !== '') {
-      this.nameSubmitted.emit(this.name);
-    // }  
+      this.nameSubmitted.emit({ name: this.name.trim(), password: this.password.trim() });
+   // }  
   }
 }
