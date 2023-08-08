@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:5000';
+  private apiUrl = 'https://localhost:7234';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   
-  checkName(name: string): Observable <any>{
-    return this.http.get(`${this.apiUrl}/names?name=${name}`);
+  checkName(): Observable <any[]>{
+    return this.http.get<any[]>(`${this.apiUrl}/names`);
   }
 }

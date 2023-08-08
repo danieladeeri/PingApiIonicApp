@@ -9,20 +9,30 @@ import { ApiService } from './api.service';
 export class AppComponent {
   constructor(private apiService: ApiService) {}
 
-  checkName(name: string) {
-    if (!name || name.trim() === '') {
-      // Display an alert if no name is entered
-      alert('Please enter a name.');
+  checkName(name: { name: string, password: string }) {
+    if (!name.name || !name.password) {
+      alert('Please enter both a name and a password.');
       return;
     }
-    this.apiService.checkName(name).subscribe(
+    this.apiService.checkName().subscribe(
       (response: any[]) => {
-        const matchingNames = response.filter(item => item.name === name);
-  
-        if (matchingNames.length > 0) {
+        const matchingNames = response.filter(
+          item => item.name === name.name 
+          && 
+          item.password === name.password
+        );
+        // const matchingPassword = response.filter(item2 => item.password === name);
+        // if (matchingNames.length > 0 && matchingNames[0].password === name.password) {
+
+          if (matchingNames.length > 0) {
           alert ('Correct details');
+
+          // console.log('correct')
+
         } else {
           alert ('Incorrect details');
+
+          // console.log('incorrect')
         }
       },
     );
