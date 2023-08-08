@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { ActivatedRoute } from '@angular/router';
+=======
+>>>>>>> 9c047aacb5403877f20a51d13cd6b0f0af64f4a9
 
 @Component({
   selector: 'app-welcome',
@@ -7,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./welcome.page.scss'],
 })
 export class WelcomePage implements OnInit {
+<<<<<<< HEAD
   welcomeMessage: string = '';
 
   constructor(private route: ActivatedRoute) { }
@@ -23,3 +27,12 @@ export class WelcomePage implements OnInit {
         this.welcomeMessage = `Welcome ${name}!`;
       }
   }}
+=======
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+>>>>>>> 9c047aacb5403877f20a51d13cd6b0f0af64f4a9
